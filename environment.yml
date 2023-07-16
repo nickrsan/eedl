@@ -1,4 +1,4 @@
-name: eedl_testing_testing
+name: conda_testing
 channels:
   - conda-forge
 dependencies:
