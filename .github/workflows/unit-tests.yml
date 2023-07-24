@@ -1,11 +1,10 @@
-name: Python Package using Conda
+name: Unit Tests
 
 on:
   push:
     paths:
       - 'environment.yml'
       - '.github/workflows/python-package-conda.yaml'
-
 
 jobs:
   build-linux:
