@@ -6,6 +6,7 @@ on:
       - 'environment.yml'
       - '.github/workflows/python-package-conda.yaml'
 
+
 jobs:
   build-linux:
     runs-on: ubuntu-latest
