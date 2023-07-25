@@ -22,5 +22,5 @@ jobs:
 
       - name: mypy check
         run: |
-          conda install mypy
+          pip install mypy
           mypy src
