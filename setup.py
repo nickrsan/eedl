@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='eedl',
     version='0.1.0',
-    packages=['ee_download'],
+    packages=['eedl'],
     url='https://github.com/water3d/eedl',
     license='MIT',
     author='nickrsan, AdamJCrawford',
