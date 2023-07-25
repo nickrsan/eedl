@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@vv
+        uses: actions/checkout@v3
 
       - name: Flake8 Lint
         uses: py-actions/flake8@v2
