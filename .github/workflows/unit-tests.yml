@@ -20,7 +20,7 @@ jobs:
       - name: Lint with flake8
         uses: py-actions/flake8@v2
         with:
-          extend-ignore: "W191,E501,E128,E124"
+          ignore: "W191,E501,E128,E124"
       - name: Test with pytest
         run: |
           conda install pytest
