@@ -18,9 +18,9 @@ jobs:
           environment-file: environment.yml
 
       - name: Lint with flake8
-        run: |
-          conda install flake8
-          flake8 --extend-ignore=W191,E501,E128,E124
+        uses: py-actions/flake8@v2
+        with:
+          extend-ignore: "W191,E501,E128,E124"
       - name: Test with pytest
         run: |
           conda install pytest
