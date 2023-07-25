@@ -13,3 +13,14 @@ jobs:
         uses: py-actions/flake8@v2
         with:
           ignore: "W191,E501,E128,E124"
+
+  Type-Check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: mypy check
+        run: |
+          pip install mypy
+          mypy src
