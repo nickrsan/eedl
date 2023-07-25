@@ -6,6 +6,9 @@ jobs:
   Lint:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@vv
+
       - name: Flake8 Lint
         uses: py-actions/flake8@v2
         with:
