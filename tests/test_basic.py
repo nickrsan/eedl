@@ -4,8 +4,8 @@ import pytest
 
 # we should change the name of our Image class - it conflicts with the class image in the ee package, and people will
 # likely be using both. Let's not cause confusion
-import eedl
 
+import eedl
 
 def test_simple() -> None:
 	geometry = ee.FeatureCollection("users/nrsantos/vw_extraction_mask").geometry()
