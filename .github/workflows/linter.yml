@@ -2,6 +2,9 @@ name: Linting
 
 on: [push]
 
-uses: py-actions/flake8@v2
-with:
-  ignore: "W191,E501,E128,E124"
+jobs:
+  name: Lint
+
+  uses: py-actions/flake8@v2
+  with:
+    ignore: "W191,E501,E128,E124"
