@@ -22,5 +22,5 @@ jobs:
 
       - name: mypy check
         run: |
-          pip install mypy
+          micromamba install mypy
           mypy src

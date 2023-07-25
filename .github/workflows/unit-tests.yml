@@ -16,10 +16,8 @@ jobs:
         uses: mamba-org/setup-micromamba@v1
         with:
           environment-file: environment.yml
-      - name: Verify Conda install
-        run: |
-          conda list
+
       - name: Test with pytest
         run: |
-          pip install pytest
+          micromamba install pytest
           pytest
