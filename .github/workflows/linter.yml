@@ -1,0 +1,9 @@
+name: Unit Tests
+
+on: [push]
+
+jobs:
+    - name: Lint with flake8
+      uses: py-actions/flake8@v2
+      with:
+        ignore: "W191,E501,E128,E124"
