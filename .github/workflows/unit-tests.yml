@@ -27,4 +27,5 @@ jobs:
         shell: bash -el {0}
         run: |
           conda install pytest
+          pip install .
           pytest
