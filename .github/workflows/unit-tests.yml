@@ -61,4 +61,4 @@ jobs:
 
       - name: Test with tox
         shell: bash -el {0}
-        run: tox -vv
+        run: tox

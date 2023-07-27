@@ -13,11 +13,11 @@ from ee import EEException
 from . import google_cloud
 from . import mosaic_rasters
 
-try:
-	ee.Initialize()
-except EEException:
-	ee.Authenticate()
-	ee.Initialize()
+# try:
+# 	ee.Initialize()
+# except EEException:
+# 	ee.Authenticate()
+# 	ee.Initialize()
 
 DEFAULTS = dict(
 	CRS='EPSG:4326',
@@ -25,6 +25,10 @@ DEFAULTS = dict(
 	EXPORT_FOLDER="ee_exports"
 
 )
+
+
+def test(tmp: str) -> int:
+	return 1
 
 
 def _get_fiona_args(polygon_path: Union[str, Path]) -> Dict[str, str]:
