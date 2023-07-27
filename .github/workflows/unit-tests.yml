@@ -33,4 +33,5 @@ jobs:
         run: conda list
 
       - name: Test with tox
+        shell: bash -el {0}
         run: tox
