@@ -22,5 +22,5 @@ jobs:
 
       - name: mypy check
         run: |
-          pip install mypy
-          mypy src --install-types
+          pip install mypy, types-requests, pandas-stubs
+          mypy src
