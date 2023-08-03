@@ -1,7 +1,7 @@
 import os
 import tempfile
 from pathlib import Path
-from typing import List, Sequence, Union
+from typing import Sequence, Union
 
 from osgeo import gdal
 
