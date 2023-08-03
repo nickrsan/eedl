@@ -19,7 +19,6 @@ def test_int_equality():
     assert 8 == 8
     assert 9 == 9
     assert 10 == 10
-    assert eedl.image.test("a") == 1
 
 
 def test_int_equality2():

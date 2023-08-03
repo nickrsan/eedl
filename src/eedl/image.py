@@ -13,11 +13,11 @@ from ee import EEException
 from . import google_cloud
 from . import mosaic_rasters
 
-# try:
-# 	ee.Initialize()
-# except EEException:
-# 	ee.Authenticate()
-# 	ee.Initialize()
+try:
+	ee.Initialize()
+except EEException:
+	ee.Authenticate()
+	ee.Initialize()
 
 DEFAULTS = dict(
 	CRS='EPSG:4326',
@@ -25,10 +25,6 @@ DEFAULTS = dict(
 	EXPORT_FOLDER="ee_exports"
 
 )
-
-
-def test(tmp: str) -> int:
-	return 1
 
 
 def _get_fiona_args(polygon_path: Union[str, Path]) -> Dict[str, str]:
@@ -64,7 +60,7 @@ def download_images_in_folder(source_location: Union[str, Path], download_locati
 		shutil.move(os.path.join(folder_search_path, filename), os.path.join(download_location, filename))
 
 
-class TaskRegistry(object):
+class TaskRegistry:
 	INCOMPLETE_STATUSES = ("READY", "UNSUBMITTED", "RUNNING")
 	COMPLETE_STATUSES = ["COMPLETED"]
 	FAILED_STATUSES = ["CANCEL_REQUESTED", "CANCELLED", "FAILED"]
@@ -120,7 +116,7 @@ class TaskRegistry(object):
 main_task_registry = TaskRegistry()
 
 
-class Image(object):
+class Image:
 	"""
 		The main class that does all the work. Any use of this package should instantiate this class for each export
 		the user wants to do. As we refine this, we may be able to provide just a single function in this module named
@@ -183,7 +179,7 @@ class Image(object):
 				clip: ee.geometry.Geometry = None,
 				**export_kwargs) -> None:
 
-		# If image is does not have a clip attribute, the error message is not very helpful. This allows for a custom error message:
+		# If image does not have a clip attribute, the error message is not very helpful. This allows for a custom error message:
 		if not isinstance(image, ee.image.Image):
 			raise ValueError("Invalid image provided for export")
 
@@ -244,14 +240,14 @@ class Image(object):
 
 		folder_search_path = os.path.join(self.drive_root_folder, self.export_folder)
 		self.output_folder = os.path.join(download_location, self.export_folder)
-		if self.export_type == "Drive":
+		if self.export_type.lower() == "drive":
 			download_images_in_folder(folder_search_path, self.output_folder, prefix=self.filename)
 
-		elif self.export_type == "Cloud":
+		elif self.export_type.lower() == "cloud":
 			google_cloud.download_public_export(self.bucket, self.output_folder, f"{self.export_folder}/{self.filename}")
 
 		else:
-			raise ValueError("Unknown export_type (not one of 'Drive', 'Cloud') - can't download")
+			raise ValueError("Unknown export_type (not one of 'drive', 'cloud') - can't download")
 
 		self.task_data_downloaded = True
 

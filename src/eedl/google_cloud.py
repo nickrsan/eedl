@@ -6,7 +6,7 @@ from typing import Union
 import requests
 
 
-# from google.cloud import storage
+from google.cloud import storage
 
 
 def get_public_export_urls(bucket_name: str, prefix: str = ""):
