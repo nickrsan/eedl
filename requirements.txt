@@ -3,7 +3,7 @@ rasterstats
 earthengine-api
 fiona
 pandas
-seaborn>=0.12.0
+seaborn
 google-cloud-storage
 setuptools
 requests
