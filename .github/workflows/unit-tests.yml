@@ -5,7 +5,7 @@ on:
   - pull_request
 
 jobs:
-  Test-Ubuntu:
+  Test-Package:
     runs-on: ${{ matrix.os }}
     strategy:
       max-parallel: 4
@@ -25,13 +25,15 @@ jobs:
           python-version: ${{ matrix.python-version }}
           channels: conda-forge
 
-      - name: Install dependencies
+      - name: Install Dependencies Ubuntu
+        if: runner.os ==  'Ubuntu'
         run: |
-          if: ${{matrix.os}} ==  'ubuntu-latest'
           python -m pip install --upgrade pip
           pip install tox
-          
-          if: ${{matrix.os}} ==  'windows-latest'
+
+      - name: Install Dependencies Windows
+        if: runner.os ==  'Windows'
+        run: |
           conda install pip tox
 
       - name: Test with tox
