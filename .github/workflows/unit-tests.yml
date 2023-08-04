@@ -8,7 +8,7 @@ jobs:
   Test-Package:
     runs-on: ${{ matrix.os }}
     strategy:
-      max-parallel: 4
+      max-parallel: 8
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
@@ -26,13 +26,13 @@ jobs:
           channels: conda-forge
 
       - name: Install Dependencies Ubuntu
-        if: ${{matrix.os}} ==  ubuntu-latest
+        if: matrix.os ==  'ubuntu-latest'
         run: |
           python -m pip install --upgrade pip
           pip install tox
 
       - name: Install Dependencies Windows
-        if: ${{matrix.os}} ==  windows-latest
+        if: matrix.os ==  'windows-latest'
         run: |
           conda install pip tox
 
