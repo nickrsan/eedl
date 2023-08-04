@@ -42,3 +42,9 @@ def test_int_equality3():
     assert 8 == 8
     assert 9 == 9
     assert 10 == 10
+
+
+def test_int_equality4():
+    import platform
+    assert "Windows" in platform.platform()
+    assert "Ubuntu" in platform.platform()
