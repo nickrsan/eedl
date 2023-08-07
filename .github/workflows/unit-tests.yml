@@ -42,7 +42,7 @@ jobs:
           sudo apt-get install gdal-bin libgdal-dev
           echo "CPLUS_INCLUDE_PATH=/usr/include/gdal" >> $GITHUB_ENV
           echo "C_INCLUDE_PATH=/usr/include/gdal" >> $GITHUB_ENV
-          ogrversion=`ogrinfo --version`
+          ogrversion=`ogrinfo --version | grep -oP "\d+\.\d+\.\d+"`
           echo "OGRVERSION=$ogrversion" >> $GITHUB_ENV
 
       - name: Install Dependencies Ubuntu
