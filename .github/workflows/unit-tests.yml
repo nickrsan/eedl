@@ -8,7 +8,7 @@ jobs:
   Test-Package:
     runs-on: ${{ matrix.os }}
     strategy:
-      max-parallel: 8
+      max-parallel: 4
       fail-fast: true
       matrix:
         os: [ubuntu-latest, windows-latest]
@@ -54,4 +54,4 @@ jobs:
 
       - name: Test with tox
         shell: bash -el {0}
-        run: tox -r
+        run: tox
