@@ -32,6 +32,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: Apt Package Cache Update  
+        if: matrix.os ==  'ubuntu-latest'
+        run: sudo apt-get update
+
       - name: Install GDAL Ubuntu      
         if: matrix.os ==  'ubuntu-latest'
         run: sudo apt-get install gdal-bin
