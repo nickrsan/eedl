@@ -34,7 +34,7 @@ jobs:
 
       - name: Install GDAL Ubuntu      
         if: matrix.os ==  'ubuntu-latest'
-        run: sudo apt-get install gdal
+        run: sudo apt-get install gdal-bin
 
       - name: Install Dependencies Ubuntu
         if: matrix.os ==  'ubuntu-latest'
