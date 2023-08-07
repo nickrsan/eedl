@@ -42,12 +42,15 @@ jobs:
           sudo apt-get install gdal-bin libgdal-dev
           echo "CPLUS_INCLUDE_PATH=/usr/include/gdal" >> $GITHUB_ENV
           echo "C_INCLUDE_PATH=/usr/include/gdal" >> $GITHUB_ENV
+          ogrversion=`ogrinfo --version`
+          echo "OGRVERSION=$ogrversion" >> $GITHUB_ENV
 
       - name: Install Dependencies Ubuntu
         if: matrix.os ==  'ubuntu-latest'
         run: |
           python -m pip install --upgrade pip
           python -m pip install tox tox-gh-actions
+          python -m pip install 'gdal==$OGRVERSION'
           python -m pip install -r requirements.txt
 
       - name: Install Dependencies Windows
