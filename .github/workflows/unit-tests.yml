@@ -38,7 +38,10 @@ jobs:
 
       - name: Install GDAL Ubuntu      
         if: matrix.os ==  'ubuntu-latest'
-        run: sudo apt-get install gdal-bin libgdal-dev
+        run: |
+          sudo apt-get install gdal-bin libgdal-dev
+          echo "CPLUS_INCLUDE_PATH=/usr/include/gdal" >> $GITHUB_ENV
+          echo "C_INCLUDE_PATH=/usr/include/gdal" >> $GITHUB_ENV
 
       - name: Install Dependencies Ubuntu
         if: matrix.os ==  'ubuntu-latest'
