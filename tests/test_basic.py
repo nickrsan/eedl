@@ -1,10 +1,12 @@
 # import ee
 # from ee import ImageCollection
 # import pytest
-# import eedl
+import eedl.image
 
 # we should change the name of our Image class - it conflicts with the class image in the ee package, and people will
 # likely be using both. Let's not cause confusion
+
+
 def test_int_equality():
     assert 1 == 1
     assert 2 == 2
@@ -16,6 +18,7 @@ def test_int_equality():
     assert 8 == 8
     assert 9 == 9
     assert 10 == 10
+    assert eedl.image.testing("a") == 1
 
 
 def test_int_equality2():
