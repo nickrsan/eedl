@@ -26,10 +26,15 @@ jobs:
           python-version: ${{ matrix.python-version }}
           channels: conda-forge
 
-      - name: Set Up Python
+      - name: Set Up Python Ubuntu
         uses: actions/setup-python@v4
+        if: matrix.os ==  'ubuntu-latest'
         with:
           python-version: ${{ matrix.python-version }}
+
+      - name: Install GDAL Ubuntu      
+        if: matrix.os ==  'ubuntu-latest'
+        run: sudo apt-get install gdal
 
       - name: Install Dependencies Ubuntu
         if: matrix.os ==  'ubuntu-latest'
